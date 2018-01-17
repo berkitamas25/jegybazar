@@ -1,4 +1,5 @@
 # Jegybazar
+Ide szerkeztettem ezt, hogy lássam a commit-ot és a push-t.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
 
