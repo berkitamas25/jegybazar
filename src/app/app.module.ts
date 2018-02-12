@@ -6,22 +6,23 @@ import { AppComponent } from './app.component';
 import {CollapseModule} from 'ngx-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
-import { EventcardComponent } from './eventcard/eventcard.component';
+import { EventcardComponent } from './event/eventcard/eventcard.component';
 import { FooterComponent } from './footer/footer.component';
 import { EventComponent } from './event/event.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-import { EventDetailComponent } from './event-detail/event-detail.component';
-import { EventListComponent } from './event-list/event-list.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegistrationComponent } from './user/registration/registration.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { ProfileEditComponent } from './user/profile-edit/profile-edit.component';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { EventListComponent } from './event/event-list/event-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
-import { BidComponent } from './bid/bid.component';
-import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
-import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { BidComponent } from './ticket/bid/bid.component';
+import { TicketDetailComponent } from './ticket/ticket-detail/ticket-detail.component';
+import { TicketListComponent } from './ticket/ticket-list/ticket-list.component';
 import { TicketComponent } from './ticket/ticket.component';
 import {AppRoutingModule} from './app-routing.module';
+import {EventService} from './shared/event.service';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import {AppRoutingModule} from './app-routing.module';
     CollapseModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
