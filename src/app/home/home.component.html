@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="col col-md-8 mx-md-auto col-lg-4">
+    <div class="col col-md-8 mx-md-auto col-lg-4" *ngIf="!userService.isLoggedin">
       <div class="index_card text-center col">
         <div class="row justify-content-center">
           <img class="card-img-top img-fluid calendar" src="assets/user.png" alt="Card image cap">
@@ -42,7 +42,7 @@
         <div class="card-body">
           <h4 class="card-title">Regisztráció</h4>
           <p class="index_text card-text">Még nem regisztráltál? Akkor gyorsan tedd meg, mert a szolgáltatás csak tagonkak elérhető. Sőt, az újak értékes ajándékot kapnak tőlünk.</p>
-          <a routerLink="../registration" class="btn btn-primary index_btn_card">Regisztráció</a>
+          <a routerLink="../user/registration" class="btn btn-primary index_btn_card">Regisztráció</a>
         </div>
       </div>
     </div>
