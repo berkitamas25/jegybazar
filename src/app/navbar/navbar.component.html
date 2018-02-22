@@ -7,8 +7,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [collapse]="isCollapsed">
       <div class="navbar-nav ml-auto">
         <a class="nav-item nav-link " routerLinkActive="active" routerLink="/home">Home</a>
-        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/event/list">Események</a>
-        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/ticket/list">Jegyek</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/event">Események</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/ticket">Jegyek</a>
         <a class="nav-item nav-link" routerLinkActive="active" routerLink="/about">Rólunk</a>
         <ng-container *ngIf="!userService.isLoggedin; else isBlocked ";>
         <a class="nav-item nav-link" routerLinkActive="active" routerLink="user/login">Belépés</a>

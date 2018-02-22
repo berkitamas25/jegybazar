@@ -5,30 +5,36 @@ export class UserModel {
   address: string;
   dateOfBirth: string;
   gender: string;
+  profilePictureUrl: string;
 
   constructor(param?: UserModel) {
-if (param) {
-  Object.assign(this, param);
-}
+    if (param) {
+      Object.assign(this, param);
+    }
   }
-  static  get exampleUser(): UserModel {
+
+  // UserModel.exampleUser
+  static get exampleUser(): UserModel {
     return {
       id: 0,
-    name: 'Berki Tamás',
-    email: 'tomiram@citomail.hu',
-    address: 'Toldi utca 1.',
-    dateOfBirth: '1991.10.25',
-    gender: 'male'
+      name: 'Legyek Réka Matlida',
+      email: 'legyekrekamatilda@valami.com',
+      address: 'Futrinka utca',
+      dateOfBirth: '2001.01.01',
+      gender: 'female',
+      profilePictureUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4nBubms8tp5EDXG6LBhVyy4AES2WCqceh674hyF6rNwjYoJ4ddQ'
     };
   }
+
   static get emptyUser(): UserModel {
     return {
-     id: 0,
-     name: '',
-     email: '',
-     address: '',
-     dateOfBirth: '',
-     gender: ''
+      id: 0,
+      name: '',
+      email: '',
+      address: '',
+      dateOfBirth: '',
+      gender: '',
+      profilePictureUrl: ''
     };
   }
 }

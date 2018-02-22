@@ -11,17 +11,19 @@
     </div>
     <!--card-body-->
     <div class="card-body">
-      <form #eventForm="ngForm" (ngSubmit)="onSubmit(eventForm.value)">
+      <form #eventForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="esemeny">Esemény címe:</label>
           <input type="text" class="form-control mb-3" id="esemeny" placeholder="Esemény címe"
-          [(ngModel)]="event.name" name="name" required>
+          [(ngModel)]="event.name" name="name" required #name="ngModel" [disabled]="!editForm">
+          <alert type="danger" *ngIf="name.touched && name.invalid">Kötelező mező!</alert>
         </div>
 
         <div class="form-group">
           <label for="idopont">Esemény időpontja</label>
           <input type="date" class="form-control mb-3" id="idopont" placeholder="Esemény időpontja"
-                 [(ngModel)]="event.date" name="date" required>
+                 [(ngModel)]="event.date" name="date" required #date="ngModel" [disabled]="!editForm">
+          <alert type="danger" *ngIf="date.invalid && date.touched">Kötelező mező!</alert>
         </div>
 
         <div class="form-group ">
@@ -29,21 +31,24 @@
           <div class="form-group  mt-3">
             <label for="eventPicUrl">Válassz képet az eseményhez</label>
             <input type="text" class="form-control mb-3" id="eventPicUrl" placeholder="Eseményhez tartozó kép URL-je"
-                   [(ngModel)]="event.pictureURL" name="pictureUrl" required>
+                   [(ngModel)]="event.pictureURL" name="pictureUrl" required #picUrl="ngModel" [disabled]="!editForm">
+            <alert type="danger" *ngIf="picUrl.invalid && picUrl.touched">Kötelező mező!</alert>
           </div>
         </div>
 
         <div class="form-group">
           <label for="leiras">Esemény leírása</label>
           <textarea class="form-control" placeholder="Esemény leírása" id="leiras"
-                    [(ngModel)]="event.description" name="description" required></textarea>
+                    [(ngModel)]="event.description" name="description" required #descr="ngModel" [disabled]="!editForm"></textarea>
+          <alert type="danger" *ngIf="descr.invalid && descr.touched">Kötelező mező!</alert>
         </div>
         <div class="text-center mb-3">
-          <input *ngIf="!event.id; else save" class="btn btn-primary btn-lg" type="submit"
-                 value="létrehozás" [disabled]="eventForm.invalid">
-          <ng-template #save>
-            <input class="btn btn-primary btn-lg" type="submit"  value="Mentés">
-          </ng-template>
+          <button *ngIf="editForm" class="btn btn-primary btn-lg" type="submit"
+                  [disabled]="eventForm.invalid">Mentés</button>
+          <button *ngIf="!editForm && userService.isLoggedin" class="btn btn-primary btn-lg" type="submit"
+                  (click)="editForm = true">Szerkeztés</button>
+          <button *ngIf="!userService.isLoggedin" class="btn btn-primary btn-lg" type="submit"
+                  (click)="navigateBack()">Vissza</button>
         </div>
       </form>
     </div>

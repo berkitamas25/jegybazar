@@ -20,15 +20,15 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'event', component: EventComponent,
     children: [
-      {path: 'list', component: EventListComponent},
-      {path: 'new', component: EventDetailComponent},
-      {path: ':id', component: EventDetailComponent}
+      {path: '', component: EventListComponent},
+      {path: 'new', component: EventDetailComponent, canActivate: [LoggedInGuard]},
+      {path: ':id', component: EventDetailComponent, canActivate: [LoggedInGuard]}
     ]},
   {path: 'ticket', component: TicketComponent,
   children: [
-    {path: 'list', component: TicketListComponent},
-    {path: 'new', component: TicketDetailComponent},
-    {path: ':id/bid', component: BidComponent},
+    {path: '', component: TicketListComponent},
+    {path: 'new', component: TicketDetailComponent, canActivate: [LoggedInGuard]},
+    {path: ':id', component: BidComponent, canActivate: [LoggedInGuard]},
   ]},
   {path: 'about', component: AboutComponent},
   {
@@ -37,7 +37,7 @@ const routes: Routes = [
       {path: '', component: ProfileComponent, canActivate: [LoggedInGuard]},
       {path: 'edit', component: ProfileEditComponent, canActivate: [LoggedInGuard]},
       {path: 'login', component: LoginComponent},
-      {path: 'registration', component: RegistrationComponent},
+      {path: 'registration', component: ProfileEditComponent},
     ]
   },
   {path: '', redirectTo: '/home', pathMatch: 'full'},

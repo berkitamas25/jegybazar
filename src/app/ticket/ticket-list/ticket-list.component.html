@@ -17,19 +17,19 @@
         <label>Jegyet szeretnék létrehozni</label>
       </div>
       <div class="w-100"></div>
-      <div><a routerLink="../new" class="btn btn-primary" role="button">Új jegy léterhozása</a></div>
+      <div><a routerLink="new" class="btn btn-primary" role="button">Új jegy léterhozása</a></div>
     </div>
 
   </div>
 
   <!-- table -->
-  <table class="table table-responsive table-hover text-center mt-5">
+  <table class="table table-hover text-center mt-5 ">
 
     <thead>
     <tr>
       <th class="text-center">Esemény neve</th>
       <th class="text-center">Időpont</th>
-      <th class="text-center d-none d-md-table-cell">Előadó neve</th>
+      <th class="text-center d-none d-md-table-cell">Eladó neve</th>
       <th class="text-center d-none d-md-table-cell">Hány db?</th>
       <th class="text-center">Licitek megtekintése</th>
     </tr>
@@ -43,7 +43,7 @@
       <td>{{ticket.date}}</td>
       <td class="d-none d-md-table-cell">{{ticket.seller.name}}</td>
       <td class="d-none d-md-table-cell">{{ticket.numberOfTickets}}</td>
-      <td><a [routerLink]="['/ticket',ticket.id,'bid']">Tovább a licithez</a></td>
+      <td><a [routerLink]="['/ticket',ticket.id]">Tovább a licithez</a></td>
     </tr>
 
     </tbody>
