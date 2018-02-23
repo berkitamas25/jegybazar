@@ -15,7 +15,7 @@ export class TicketListComponent implements OnInit {
               private _userService: UserService) { }
 
   ngOnInit() {
-    this.tickets = this._ticketService.getAllTickets();
+    // this.tickets = this._ticketService.getAllTickets();
     console.log(this.tickets);
   }
 
