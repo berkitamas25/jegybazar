@@ -1,9 +1,9 @@
-import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { EventModel } from '../../shared/event-model';
-import { EventService } from '../../shared/event.service';
-import { UserService } from '../../shared/user.service';
+import {Location} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {EventModel} from '../../shared/event-model';
+import {EventService} from '../../shared/event.service';
+import {UserService} from '../../shared/user.service';
 
 @Component({
   selector: 'app-event-detail',
@@ -23,15 +23,13 @@ export class EventDetailComponent implements OnInit {
   ngOnInit() {
     // tanulsagos dolog, hogy ebben az esetben number-re kell castolni,
     // mert routing-ban ami jon az biza string
-    const evId = +this._route.snapshot.params['id'];
+    const evId = this._route.snapshot.params['id'];
+    this.event = new EventModel(EventModel.emptyEvent);
     if (evId) {
-      // this.event = this._eventService.getEventById(evId);
+      this._eventService.getEventById(evId).subscribe(evm => this.event = evm);
       console.log('kaptunk eventid-t', evId);
       console.log('kaptunk eventet', this.event);
-    } else {
-      this.event = new EventModel(EventModel.emptyEvent);
       this.editForm = true;
-      console.log('nem kaptunk eventetet, uh csinaltunk gyorsan');
     }
   }
 
